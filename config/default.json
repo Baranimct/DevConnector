@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://beekay:beekay@devconnector.ahjub.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://beekay:beekay@devconnector.ahjub.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtToken": "SecretTokenSignIn"
 }

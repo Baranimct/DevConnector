@@ -4,17 +4,20 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    emai: {
+    email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        index: true,
+        sparse: true
     },
     password: {
         type: String,
         required: true
     },
     avatar: {
-        type: String
+        type: String,
+        sparse: true
     },
     date: {
         type: Date,
@@ -22,4 +25,4 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-module.exports = User = Mongoose.model('user', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema);
