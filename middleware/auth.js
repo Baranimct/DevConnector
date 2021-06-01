@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
     //Get token from header
     const token = req.header('X-auth-token');
 
-    //CCheck if no token 
+    //Check if no token 
     if (!token) {
         return res.status(401).json({ mes: 'no token,auth denied' });
     }
@@ -16,7 +16,6 @@ module.exports = function (req, res, next) {
 
     } catch (err) {
         res.status(401).json({ mes: 'Token is not valid' });
-
     }
 
 }
