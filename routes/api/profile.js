@@ -13,6 +13,7 @@ const { check, validationResult } = require('express-validator');
 router.get('/me', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
+        res.json(profile);
 
         if (!profile) {
             res.status(400).json({ msg: "There is no profile for this user" });
@@ -134,4 +135,20 @@ router.get('/', async (req, res) => {
         res.status(500).send('Server Error')
     }
 });
+//@route DELETE api/Profile/
+//@desc  Delete profile user and posts
+//@access private
+
+router.delete('/', auth, async (req, res) => {
+    try {
+        await Profile.findOneAndRemove({ user: req.user.id });
+        await User.findOneAndRemove({ _id: req.user.id });
+        return res.json({ msg: "User is deleted" });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error')
+    }
+});
+
 module.exports = router;
+
