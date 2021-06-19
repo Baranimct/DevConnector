@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://beekay:beekay@devconnector.ahjub.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtToken": "SecretTokenSignIn",
+  "githubClientId": "e594cc1a042a0e506381",
+  "githubSecret": "eaa223b2f053b1b1d12e67fef37e49513e63dd77"
+}
