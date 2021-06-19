@@ -11,11 +11,13 @@ const User = require('../../models/User');
 //@desc cretae post 
 //@access private
 
-router.post('/', [auth,
-    check('text', 'text is required').not().isEmpty()
+router.post('/', [auth, [
+    check('text', 'text is required').not().isEmpty()]
 ], async (req, res) => {
+    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+
         return res.status(400).json({ errors: errors.array() });
     }
     try {
